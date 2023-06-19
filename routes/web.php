@@ -17,3 +17,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/hello-laravel', function () {
+    return view('hello-laravel');
+});
