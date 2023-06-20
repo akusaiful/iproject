@@ -16,7 +16,7 @@
                                 <th scope="col">Tajuk</th>
                                 <th scope="col">Tujuan</th>
                                 <th scope="col">Tarikh Hantar</th>
-                                <th scope="col">Start Date</th>
+                                <th scope="col">Tindakan</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -27,12 +27,20 @@
                                     <td>{{ $mohon->tajuk }}</td>
                                     <td>{{ $mohon->tujuan }}</td>
                                     <td>{{ $mohon->created_at }}</td>
-                                    <td>2016-05-25</td>
+                                    <td>
+                                        <a href="{{ route('mohon.show', $mohon->id) }}" class="btn btn-primary btn-sm">View</a>
+                                        <a href="" class="btn btn-warning btn-sm">Edit</a>
+                                        <a href="" class="btn btn-danger btn-sm">Delete</a>
+                                    </td>
                                 </tr>
                             @endforeach
 
                         </tbody>
                     </table>
+
+                    <!-- Ini arahan untuk generate pagination page -->
+                    {{ $senaraiPermohonan->links() }}                
+
                     <!-- End Default Table Example -->
                 </div>
             </div>

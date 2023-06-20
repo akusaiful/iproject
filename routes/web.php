@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MohonController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,6 +37,7 @@ Route::middleware('auth')->group(function(){
     Route::get('/profile', [App\Http\Controllers\UserController::class, 'show'])->name('profile');
 
     // Permohonan
-    Route::get('/mohon/index', [App\Http\Controllers\MohonController::class, 'index'])->name('mohon.index');
+    Route::get('/mohon/index', [MohonController::class, 'index'])->name('mohon.index');
+    Route::get('/mohon/{mohon}', [MohonController::class, 'show'])->name('mohon.show');
     
 });
