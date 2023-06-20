@@ -27,6 +27,12 @@ Route::get('/hello-world', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/profile', [App\Http\Controllers\UserController::class, 'show'])->name('profile');
+
+Route::middleware('auth')->group(function(){
+    
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+    Route::get('/profile', [App\Http\Controllers\UserController::class, 'show'])->name('profile');
+    
+});
