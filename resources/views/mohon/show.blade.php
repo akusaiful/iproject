@@ -57,20 +57,7 @@
                   <div class="col-lg-9 col-md-8">{{ $mohon->latar_belakang }}</div>
                 </div>
 
-                <div class="row">
-                  <div class="col-lg-3 col-md-4 label">Address</div>
-                  <div class="col-lg-9 col-md-8">A108 Adam Street, New York, NY 535022</div>
-                </div>
-
-                <div class="row">
-                  <div class="col-lg-3 col-md-4 label">Phone</div>
-                  <div class="col-lg-9 col-md-8">(436) 486-3538 x29071</div>
-                </div>
-
-                <div class="row">
-                  <div class="col-lg-3 col-md-4 label">Email</div>
-                  <div class="col-lg-9 col-md-8">k.anderson@example.com</div>
-                </div>
+                
 
               </div>
 
@@ -275,6 +262,14 @@
               <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
               <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
             </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body profile-card pt-4 d-flex flex-column align-items-left">            
+            <h3>KEMASKINI TERAKHIR</h3>            
+            <h2>{{ $mohon->updated_at->diffForHumans() }}</h2>
+            
           </div>
         </div>
 
