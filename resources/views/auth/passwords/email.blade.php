@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.guest')
 
 @section('content')
 <div class="container">
@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header">{{ __('Reset Password') }}</div>
 
-                <div class="card-body">
+                <div class="card-body pt-4">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
