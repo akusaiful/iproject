@@ -39,6 +39,7 @@ class MohonController extends Controller
     {
         //
     }
+    
 
     /**
      * Display the specified resource.
@@ -47,7 +48,7 @@ class MohonController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Mohon $mohon)
-    {        
+    {
         return view('mohon.show', compact('mohon'));
     }
 
@@ -57,9 +58,9 @@ class MohonController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Mohon $mohon)
     {
-        //
+        return view('mohon.edit')->with('mohon', $mohon);
     }
 
     /**
@@ -69,9 +70,24 @@ class MohonController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Mohon $mohon)
     {
-        //
+        // validation
+        $harumMalam = $request->validate([
+            'tajuk' => 'required|min:10|max:250',
+            'tujuan' => 'required',
+            'objektif' => 'required',
+            'latar_belakang' => 'required'
+        ], [
+            'required' => 'Medan :attribute diperlukan',
+            'latar_belakang.required' => 'Latar belakang sangat2 lah diperlukan, sila lah isi',
+            'min' => 'Alahai tulis la panjang sikit'
+        ]);
+
+        // save
+        $mohon->update($harumMalam);
+
+        return redirect()->route('mohon.show', $mohon);
     }
 
     /**
@@ -80,8 +96,9 @@ class MohonController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Mohon $mohon)
     {
-        //
+        $mohon->delete();
+        return redirect()->route('mohon.index')->with('toast_success', 'Rekod berjaya dihapuskan');
     }
 }

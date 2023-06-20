@@ -28,9 +28,16 @@
                                     <td>{{ $mohon->tujuan }}</td>
                                     <td>{{ $mohon->created_at }}</td>
                                     <td>
-                                        <a href="{{ route('mohon.show', $mohon->id) }}" class="btn btn-primary btn-sm">View</a>
-                                        <a href="" class="btn btn-warning btn-sm">Edit</a>
-                                        <a href="" class="btn btn-danger btn-sm">Delete</a>
+                                        <form action="{{ route('mohon.delete', $mohon) }}" method="POST">
+                                            @method('DELETE')
+                                            @csrf
+                                            <a href="{{ route('mohon.show', $mohon->id) }}"
+                                                class="btn btn-primary btn-sm">View</a>
+                                            <a href="{{ route('mohon.edit', $mohon) }}"
+                                                class="btn btn-warning btn-sm">Edit</a>
+                                            <input type="submit" class="btn btn-danger btn-sm" value="Delete">
+
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach
@@ -39,7 +46,7 @@
                     </table>
 
                     <!-- Ini arahan untuk generate pagination page -->
-                    {{ $senaraiPermohonan->links() }}                
+                    {{ $senaraiPermohonan->links() }}
 
                     <!-- End Default Table Example -->
                 </div>

@@ -10,5 +10,7 @@ class Mohon extends Model
     use HasFactory;
 
     protected $table = "mohon";
-    
+
+    protected $fillable = ['tajuk', 'tujuan', 'objektif', 'latar_belakang'];
+
 }

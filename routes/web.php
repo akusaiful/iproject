@@ -39,5 +39,7 @@ Route::middleware('auth')->group(function(){
     // Permohonan
     Route::get('/mohon/index', [MohonController::class, 'index'])->name('mohon.index');
     Route::get('/mohon/{mohon}', [MohonController::class, 'show'])->name('mohon.show');
-    
+    Route::get('/mohon/{mohon}/edit', [MohonController::class, 'edit'])->name('mohon.edit');
+    Route::put('/mohon/{mohon}', [MohonController::class, 'update'])->name('mohon.update');
+    Route::delete('/mohon/{mohon}', [MohonController::class, 'destroy'])->name('mohon.delete');
 });
