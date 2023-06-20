@@ -15,7 +15,7 @@ class MohonController extends Controller
     public function index()
     {
         return view('mohon.index', [
-            'senaraiPermohonan' => Mohon::all()
+            'senaraiPermohonan' => Mohon::paginate(10)
         ]);
     }
 
