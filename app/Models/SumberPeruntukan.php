@@ -5,14 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class JenisPermohonan extends Model
+class SumberPeruntukan extends Model
 {
     use HasFactory;
 
-    /**
-     * Sebab kita x guna dia punya standard  
-     */
-    protected $table = 'jenis_permohonan';
+    protected $table = 'sumber_peruntukan';
 
     public $timestamps = false;
 

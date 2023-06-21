@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\JenisPermohonan;
+use App\Models\KaedahPembangunan;
+use App\Models\KaedahPerolehan;
 use App\Models\Mohon;
+use App\Models\SumberPeruntukan;
 use Illuminate\Http\Request;
 
 class MohonController extends Controller
@@ -31,7 +34,12 @@ class MohonController extends Controller
      */
     public function create()
     {
-        //
+        return view('mohon.create', [
+            'mohon' => new Mohon()
+        ])->with('jenisPermohonan', JenisPermohonan::orderBy('nama', 'asc')->get())
+            ->with('kaedahPembangunan', KaedahPembangunan::all())
+            ->with('sumberPeruntukan', SumberPeruntukan::all())
+            ->with('kaedahPerolehan', KaedahPerolehan::all());
     }
 
     /**
@@ -42,7 +50,10 @@ class MohonController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // save
+        $mohon = Mohon::create($request->all() + ['user_id' => auth()->user()->id]);
+
+        return redirect()->route('mohon.show', $mohon);
     }
 
 
@@ -67,7 +78,10 @@ class MohonController extends Controller
     {
         return view('mohon.edit')
             ->with('mohon', $mohon)
-            ->with('jenisPermohonan', JenisPermohonan::all());           
+            ->with('jenisPermohonan', JenisPermohonan::orderBy('nama', 'asc')->get())
+            ->with('kaedahPembangunan', KaedahPembangunan::all())
+            ->with('sumberPeruntukan', SumberPeruntukan::all())
+            ->with('kaedahPerolehan', KaedahPerolehan::all());
     }
 
     /**

@@ -16,17 +16,19 @@ return new class extends Migration
         Schema::create('mohon', function (Blueprint $table) {
             $table->id();
             
-            $table->string('tajuk');
-            $table->string('tujuan');
-            $table->text('latar_belakang');
-            $table->text('objektif');
+            $table->string('tajuk')->nullable();
+            $table->string('tujuan')->nullable();
+            $table->text('latar_belakang')->nullable();
+            $table->text('objektif')->nullable();
 
             $table->string('kod_osol')->nullable();
             $table->string('kos')->nullable();
 
             $table->foreignId('user_id');
-
+            $table->foreignId('kaedah_pembangunan_id');
             $table->foreignId('jenis_permohonan_id');
+            $table->foreignId('sumber_peruntukan_id');
+            $table->foreignId('kaedah_perolehan_id');
             
             $table->timestamps();
         });

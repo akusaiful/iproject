@@ -38,6 +38,8 @@ Route::middleware('auth')->group(function(){
 
     // Permohonan
     Route::get('/mohon/index', [MohonController::class, 'index'])->name('mohon.index');
+    Route::get('/mohon/create', [MohonController::class, 'create'])->name('mohon.create');
+    Route::post('/mohon/store', [MohonController::class, 'store'])->name('mohon.store');
     Route::get('/mohon/{mohon}', [MohonController::class, 'show'])->name('mohon.show');
     Route::get('/mohon/{mohon}/edit', [MohonController::class, 'edit'])->name('mohon.edit');
     Route::put('/mohon/{mohon}', [MohonController::class, 'update'])->name('mohon.update');

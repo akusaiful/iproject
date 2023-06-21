@@ -8,6 +8,8 @@
                 <div class="card-body">
                     <h5 class="card-title">Senarai Permohonan Baru</h5>
 
+                    <a href="{{ route('mohon.create') }}" class="btn btn-primary btn-sm mb-3">Paper Baru</a>
+
                     <!-- Default Table -->
                     <table class="table">
                         <thead>

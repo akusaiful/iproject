@@ -5,7 +5,10 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 use App\Models\JenisPermohonan;
+use App\Models\KaedahPembangunan;
+use App\Models\KaedahPerolehan;
 use App\Models\Mohon;
+use App\Models\SumberPeruntukan;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -26,6 +29,9 @@ class DatabaseSeeder extends Seeder
         //DB::truncate('mohon');
         
         $this->call(JenisPermohonanSeeder::class);
+        $this->call(KaedahPembangunanSeeder::class);
+        $this->call(SumberPeruntukanSeeder::class);
+        $this->call(KaedahPerolehanSeeder::class);
 
         \App\Models\User::factory(10)->create();
 
