@@ -67,12 +67,22 @@
                                     <div class="col-lg-9 col-md-8">Peruntukan Mengurus</div>
                                 </div>
 
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-4 label ">Kod OSOL</div>
+                                    <div class="col-lg-9 col-md-8">{{ $mohon->kod_osol }}</div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-4 label ">Kos</div>
+                                    <div class="col-lg-9 col-md-8">{{ $mohon->kos }}</div>
+                                </div>
+
 
                                 <div class="row mt-5">
                                     <div class="col-lg-3 col-md-4 label "></div>
                                     <div class="col-lg-9 col-md-8">
                                         <a href="{{ route('mohon.index') }}" class="btn btn-primary">Senarai Permohonan</a>
-                                        <a href="" class="btn btn-warning">Kemaskini</a>
+                                        <a href="{{ route('mohon.edit', $mohon) }}" class="btn btn-warning">Kemaskini</a>
                                     </div>
                                 </div>
 
@@ -307,6 +317,14 @@
                             <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
                             <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
                         </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-body profile-card pt-4 d-flex flex-column align-items-left">
+                        <h3>JENIS PERMOHONAN</h3>
+                        <h2><div class="badge rounded-pill bg-primary">{{ $mohon->jenis_permohonan->nama }}</div></h2>
+
                     </div>
                 </div>
 

@@ -18,9 +18,10 @@ class Mohon extends Model
      * 3. kod_osol
      * 4. kos
      * 5. kaedah_perolehan_id (Lookup) 
+     * 5. jenis_permononan_id (Lookup)
      **/
 
-    protected $fillable = ['tajuk', 'tujuan', 'objektif', 'latar_belakang', 'jenis_permohonan_id', 'user_id'];
+    protected $fillable = ['tajuk', 'tujuan', 'objektif', 'latar_belakang', 'kod_osol', 'kos', 'jenis_permohonan_id', 'user_id'];
 
     /**
      * relation betwee 2 table

@@ -20,8 +20,12 @@ return new class extends Migration
             $table->string('tujuan');
             $table->text('latar_belakang');
             $table->text('objektif');
+
+            $table->string('kod_osol')->nullable();
+            $table->string('kos')->nullable();
+
             $table->foreignId('user_id');
-            
+
             $table->foreignId('jenis_permohonan_id');
             
             $table->timestamps();

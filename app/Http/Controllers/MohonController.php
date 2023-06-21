@@ -80,7 +80,7 @@ class MohonController extends Controller
     public function update(Request $request, Mohon $mohon)
     {
         // validation
-        $harumMalam = $request->validate([
+        $request->validate([
             'tajuk' => 'required|min:10|max:250',
             'tujuan' => 'required',
             'objektif' => 'required',
@@ -92,7 +92,7 @@ class MohonController extends Controller
         ]);
 
         // save
-        $mohon->update($harumMalam);
+        $mohon->update($request->all());
 
         return redirect()->route('mohon.show', $mohon);
     }

@@ -75,6 +75,37 @@
                                 </div>
                             </div>
 
+                            <h5 class="card-title">Butiran Kos</h5>
+
+                            <div class="row mb-3">
+                                <label for="inputText" class="col-sm-2 col-form-label">Kod OSOL</label>
+                                <div class="col-sm-10">
+
+                                    <input type="text" class="form-control @error('kod_osol') is-invalid @enderror"
+                                        value="{{ old('kod_osol', $mohon->kod_osol) }}" name="kod_osol">
+                                    @error('kod_osol')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+
+
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="inputText" class="col-sm-2 col-form-label">Kod</label>
+                                <div class="col-sm-10">
+
+                                    <input type="text" class="form-control @error('kos') is-invalid @enderror"
+                                        value="{{ old('kos', $mohon->kos) }}" name="kos">
+                                    @error('kos')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+
+
+                                </div>
+                            </div>
+
+                            
 
                             <div class="row mb-3">
                                 <label class="col-sm-2 col-form-label"></label>
