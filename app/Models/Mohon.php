@@ -11,6 +11,22 @@ class Mohon extends Model
 
     protected $table = "mohon";
 
-    protected $fillable = ['tajuk', 'tujuan', 'objektif', 'latar_belakang'];
+    /**
+     * Field tambahan
+     * 1. kaedah_pembangunan_id (Lookup)
+     * 2. sumber_peruntukan_id (Lookup)
+     * 3. kod_osol
+     * 4. kos
+     * 5. kaedah_perolehan_id (Lookup) 
+     **/
 
+    protected $fillable = ['tajuk', 'tujuan', 'objektif', 'latar_belakang', 'jenis_permohonan_id', 'user_id'];
+
+    /**
+     * relation betwee 2 table
+     */
+    public function jenis_permohonan()
+    {
+        return $this->belongsTo(JenisPermohonan::class);
+    }
 }

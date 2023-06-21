@@ -13,8 +13,8 @@
                         <thead>
                             <tr class="table-dark">
                                 <th scope="col">#</th>
-                                <th scope="col">Tajuk</th>
-                                <th scope="col">Tujuan</th>
+                                <th scope="col">Tajuk</th>                                
+                                <th scope="col">Jenis Permohonan</th>
                                 <th scope="col">Tarikh Hantar</th>
                                 <th scope="col">Tindakan</th>
                             </tr>
@@ -25,19 +25,14 @@
                                 <tr>
                                     <th scope="row">{{ $mohon->id }}</th>
                                     <td>{{ $mohon->tajuk }}</td>
-                                    <td>{{ $mohon->tujuan }}</td>
+                                    <td>{{ $mohon->jenis_permohonan->nama }}</td>
                                     <td>{{ $mohon->created_at }}</td>
                                     <td>
-                                        <form action="{{ route('mohon.delete', $mohon) }}" method="POST">
-                                            @method('DELETE')
-                                            @csrf
-                                            <a href="{{ route('mohon.show', $mohon->id) }}"
-                                                class="btn btn-primary btn-sm">View</a>
-                                            <a href="{{ route('mohon.edit', $mohon) }}"
-                                                class="btn btn-warning btn-sm">Edit</a>
-                                            <input type="submit" class="btn btn-danger btn-sm" value="Delete">
-
-                                        </form>
+                                        <a href="{{ route('mohon.show', $mohon->id) }}"
+                                            class="btn btn-primary btn-sm">View</a>
+                                        <a href="{{ route('mohon.edit', $mohon) }}" class="btn btn-warning btn-sm">Edit</a>
+                                        <a href="{{ route('mohon.delete', $mohon->id) }}" class="btn btn-danger btn-sm"
+                                            data-confirm-delete="true">Delete</a>
                                     </td>
                                 </tr>
                             @endforeach

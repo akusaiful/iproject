@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\JenisPermohonan;
 use App\Models\Mohon;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -23,10 +24,14 @@ class DatabaseSeeder extends Seeder
         // User::truncate();
         
         //DB::truncate('mohon');
+        
+        $this->call(JenisPermohonanSeeder::class);
 
         \App\Models\User::factory(10)->create();
 
         \App\Models\Mohon::factory(50)->create();
+
+        
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',

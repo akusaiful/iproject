@@ -13,18 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('mohon', function (Blueprint $table) {
+        Schema::create('jenis_permohonan', function (Blueprint $table) {
             $table->id();
+            $table->string('nama');
             
-            $table->string('tajuk');
-            $table->string('tujuan');
-            $table->text('latar_belakang');
-            $table->text('objektif');
-            $table->foreignId('user_id');
-            
-            $table->foreignId('jenis_permohonan_id');
-            
-            $table->timestamps();
+            // $table->timestamps();
         });
     }
 
@@ -35,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mohon');
+        Schema::dropIfExists('jenis_permohonan');
     }
 };

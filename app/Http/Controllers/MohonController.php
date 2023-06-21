@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\JenisPermohonan;
 use App\Models\Mohon;
 use Illuminate\Http\Request;
 
@@ -14,8 +15,12 @@ class MohonController extends Controller
      */
     public function index()
     {
+        $title = 'Delete User!';
+        $text = "Are you sure you want to delete?";
+        confirmDelete($title, $text);
+
         return view('mohon.index', [
-            'senaraiPermohonan' => Mohon::paginate(10)
+            'senaraiPermohonan' => Mohon::paginate(config('paginator.record_per_page'))
         ]);
     }
 
@@ -39,7 +44,7 @@ class MohonController extends Controller
     {
         //
     }
-    
+
 
     /**
      * Display the specified resource.
@@ -60,7 +65,9 @@ class MohonController extends Controller
      */
     public function edit(Mohon $mohon)
     {
-        return view('mohon.edit')->with('mohon', $mohon);
+        return view('mohon.edit')
+            ->with('mohon', $mohon)
+            ->with('jenisPermohonan', JenisPermohonan::all());           
     }
 
     /**
@@ -99,6 +106,6 @@ class MohonController extends Controller
     public function destroy(Mohon $mohon)
     {
         $mohon->delete();
-        return redirect()->route('mohon.index')->with('toast_success', 'Rekod berjaya dihapuskan');
+        return redirect()->back()->with('success', 'Rekod berjaya dihapuskan');
     }
 }

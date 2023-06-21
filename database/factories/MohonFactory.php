@@ -21,7 +21,8 @@ class MohonFactory extends Factory
             'tujuan' => fake()->catchPhrase,
             'latar_belakang' => fake()->text(),
             'objektif' => fake()->text(),
-            'user_id' => rand(1,10)
+            'user_id' => rand(1,10),
+            'jenis_permohonan_id' => rand(1,2)
         ];
     }
 }
