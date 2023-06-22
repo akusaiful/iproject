@@ -11,7 +11,7 @@ class Mesyuarat extends Model
 
     protected $table = 'mesyuarat';
 
-    protected $fillable = ['bil', 'tahun', 'tarikh', 'tempat', 'masa', 'catatan'];
+    protected $fillable = ['bil', 'tahun', 'tarikh', 'tempat', 'masa', 'catatan', 'jenis_mesyuarat_id'];
 
     public function jenis_mesyuarat()
     {

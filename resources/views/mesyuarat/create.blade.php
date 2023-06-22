@@ -7,18 +7,18 @@
 
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Butiran Permohonan</h5>
+                        <h5 class="card-title">Butiran Mesyuarat</h5>
 
                         <!-- General Form Elements -->
-                        <form action="{{ route('mohon.store') }}" method="POST">
+                        <form action="{{ route('mesyuarat.store') }}" method="POST">
                             @csrf
                             
-                            @include('mohon._form')
+                            @include('mesyuarat._form')
                         
                             <div class="row mb-3">
                                 <label class="col-sm-2 col-form-label"></label>
                                 <div class="col-sm-10">
-                                    <button type="submit" class="btn btn-primary">Daftar Permohonan Baru</button>
+                                    <button type="submit" class="btn btn-primary">Daftar Mesyuarat</button>
                                 </div>
                             </div>
 

@@ -20,7 +20,7 @@ return new class extends Migration
             $table->date('tarikh');
             $table->string('masa');
             $table->string('tempat');
-            $table->text('catatan');
+            $table->text('catatan')->nullable();
             $table->foreignId('jenis_mesyuarat_id');
             $table->timestamps();
         });

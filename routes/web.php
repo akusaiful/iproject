@@ -48,6 +48,8 @@ Route::middleware('auth')->group(function(){
     Route::group(['prefix' => 'mesyuarat'], function(){
 
         Route::get('/', [MesyuaratController::class, 'index'])->name('mesyuarat.index');
+        Route::get('/create', [MesyuaratController::class, 'create'])->name('mesyuarat.create');
+        Route::post('/store', [MesyuaratController::class, 'store'])->name('mesyuarat.store');
         Route::get('/{mesyuarat}/view', [MesyuaratController::class, 'show'])->name('mesyuarat.show');
         Route::get('/{mesyuarat}/edit', [MesyuaratController::class, 'edit'])->name('mesyuarat.edit');
         Route::put('/{mesyuarat}', [MesyuaratController::class, 'update'])->name('mesyuarat.update');

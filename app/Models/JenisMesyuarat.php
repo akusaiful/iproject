@@ -9,6 +9,9 @@ class JenisMesyuarat extends Model
 {
     use HasFactory;
 
+    const MESYUARAT_JPICT = 1;
+    const MESYUARAT_JTICT = 2;
+
     protected $table = 'jenis_mesyuarat';
 
     public $timestamps = false;

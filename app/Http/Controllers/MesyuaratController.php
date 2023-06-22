@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\MesyuaratRequest;
+use App\Models\JenisMesyuarat;
 use App\Models\Mesyuarat;
 use Illuminate\Http\Request;
 use Itstructure\GridView\DataProviders\EloquentDataProvider;
@@ -28,7 +30,7 @@ class MesyuaratController extends Controller
      */
     public function create()
     {
-        //
+        return view('mesyuarat.create')->with('mesyuarat', new Mesyuarat());
     }
 
     /**
@@ -37,9 +39,11 @@ class MesyuaratController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(MesyuaratRequest $request)
     {
-        //
+        return redirect()->route('mesyuarat.show', Mesyuarat::create($request->all() + [
+            'jenis_mesyuarat_id' => JenisMesyuarat::MESYUARAT_JPICT
+        ]));
     }
 
     /**
@@ -71,7 +75,7 @@ class MesyuaratController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Mesyuarat $mesyuarat)
+    public function update(MesyuaratRequest $request, Mesyuarat $mesyuarat)
     {
         $mesyuarat->update($request->all());
         return redirect()->route('mesyuarat.show', $mesyuarat)->with('toast_success', 'Rekod berjaya dikemaskini');
@@ -85,7 +89,7 @@ class MesyuaratController extends Controller
      */
     public function destroy(Mesyuarat $mesyuarat)
     {
-        $mesyuarat->delete(); 
-        return redirect()->route('mesyuarat.index')->with('toast_success', 'Rekod berjaya dihapuskan');       
+        $mesyuarat->delete();
+        return redirect()->route('mesyuarat.index')->with('toast_success', 'Rekod berjaya dihapuskan');
     }
 }

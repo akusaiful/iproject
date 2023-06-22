@@ -19,8 +19,9 @@
                         // Required
                         'view',
                         'edit',
-                        // 'edit' => function ($data) {
-                        //     return '/admin/pages/' . $data->id . '/edit';
+                        // 'delete' => function ($data) {
+                        //     return route('mesyuarat.delete', $data);
+                        //     // return '/admin/pages/' . $data->id . '/edit';
                         // },
                         // 'delete',
                         [
@@ -42,5 +43,7 @@
         ];
     @endphp
 
-    @gridView($gridData)
+<a href="{{ route('mesyuarat.create') }}" class="btn btn-primary">Daftar Mesyuarat</a>
+
+@gridView($gridData)   
 @endsection
