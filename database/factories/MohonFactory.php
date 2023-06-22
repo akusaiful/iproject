@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Mohon;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -26,7 +27,8 @@ class MohonFactory extends Factory
             'kod_osol' => fake()->randomElement(['OS2800', 'P02-01105', 'SHOPEEE']),
             'kaedah_pembangunan_id' => rand(1,2),
             'sumber_peruntukan_id' => rand(1,2),
-            'kaedah_perolehan_id' => rand(1,3)
+            'kaedah_perolehan_id' => rand(1,3),
+            'status_borang' => fake()->randomElement([Mohon::STATUS_BORANG_DRAFT, Mohon::STATUS_BORANG_SUBMIT]),
         ];
     }
 }

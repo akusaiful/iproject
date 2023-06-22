@@ -19,7 +19,8 @@
                             <div class="row mb-3">
                                 <label class="col-sm-2 col-form-label"></label>
                                 <div class="col-sm-10">
-                                    <button type="submit" class="btn btn-primary">Update</button>
+                                    <button type="submit" name="action" value="draft" class="btn btn-primary">Simpan Draft</button>
+                                    <button type="submit" name="action" value="submit" class="btn btn-success">Hantar Permohonan</button>
                                 </div>
                             </div>
 

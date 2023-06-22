@@ -18,6 +18,7 @@
                                 <th scope="col">Tajuk</th>                                
                                 <th scope="col">Jenis Permohonan</th>
                                 <th scope="col">Tarikh Hantar</th>
+                                <th scope="col">Status</th>
                                 <th scope="col">Tindakan</th>
                             </tr>
                         </thead>
@@ -29,6 +30,7 @@
                                     <td>{{ $mohon->tajuk }}</td>
                                     <td>{{ $mohon->jenis_permohonan->nama }}</td>
                                     <td>{{ $mohon->created_at }}</td>
+                                    <td>{{ $mohon->status_borang }}</td>
                                     <td>
                                         <a href="{{ route('mohon.show', $mohon->id) }}"
                                             class="btn btn-primary btn-sm">View</a>

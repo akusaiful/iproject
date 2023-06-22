@@ -322,6 +322,14 @@
 
                 <div class="card">
                     <div class="card-body profile-card pt-4 d-flex flex-column align-items-left">
+                        <h3>STATUS PERMOHONAN</h3>
+                        <h2><div class="badge rounded-pill bg-primary">{{ $mohon->status_borang }}</div></h2>
+
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-body profile-card pt-4 d-flex flex-column align-items-left">
                         <h3>JENIS PERMOHONAN</h3>
                         <h2><div class="badge rounded-pill bg-primary">{{ $mohon->jenis_permohonan->nama }}</div></h2>
 

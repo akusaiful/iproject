@@ -29,6 +29,8 @@ return new class extends Migration
             $table->foreignId('jenis_permohonan_id');
             $table->foreignId('sumber_peruntukan_id');
             $table->foreignId('kaedah_perolehan_id');
+
+            $table->string('status_borang')->length(10);
             
             $table->timestamps();
         });

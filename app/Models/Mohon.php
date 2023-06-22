@@ -9,6 +9,11 @@ class Mohon extends Model
 {
     use HasFactory;
 
+    const STATUS_BORANG_DRAFT = 'DRAFT';
+    const STATUS_BORANG_SUBMIT = 'SUBMIT';
+
+    public $status_borang_draft = 'DRAFT';
+
     protected $table = "mohon";
 
     /**
@@ -30,7 +35,8 @@ class Mohon extends Model
     protected $fillable = [
         'tajuk', 'tujuan', 'objektif', 'latar_belakang', 'kod_osol',
         'kos', 'jenis_permohonan_id', 'user_id',
-        'kaedah_pembangunan_id', 'sumber_peruntukan_id', 'kaedah_perolehan_id'
+        'kaedah_pembangunan_id', 'sumber_peruntukan_id', 'kaedah_perolehan_id',
+        'status_borang'
     ];
 
     /**

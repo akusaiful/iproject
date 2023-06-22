@@ -51,7 +51,10 @@ class MohonController extends Controller
     public function store(Request $request)
     {
         // save
-        $mohon = Mohon::create($request->all() + ['user_id' => auth()->user()->id]);
+        $mohon = Mohon::create($request->all() + [
+            'user_id' => auth()->user()->id,
+            'status_borang' => Mohon::STATUS_BORANG_DRAFT
+        ]);
 
         return redirect()->route('mohon.show', $mohon);
     }
@@ -93,22 +96,32 @@ class MohonController extends Controller
      */
     public function update(Request $request, Mohon $mohon)
     {
-        // validation
-        $request->validate([
-            'tajuk' => 'required|min:10|max:250',
-            'tujuan' => 'required',
-            'objektif' => 'required',
-            'latar_belakang' => 'required'
-        ], [
-            'required' => 'Medan :attribute diperlukan',
-            'latar_belakang.required' => 'Latar belakang sangat2 lah diperlukan, sila lah isi',
-            'min' => 'Alahai tulis la panjang sikit'
-        ]);
+        switch ($request->input('action')) {
+            case 'draft':
+                $return = redirect()->route('mohon.edit', $mohon)
+                    ->with('success', 'Rekod berjaya dikemaskini');
+                break;
+            case 'submit':
+                // validation
+                $request->validate([
+                    'tajuk' => 'required|min:10|max:250',
+                    'tujuan' => 'required',
+                    'objektif' => 'required',
+                    'latar_belakang' => 'required'
+                ], [
+                    'required' => 'Medan :attribute diperlukan',
+                    'latar_belakang.required' => 'Latar belakang sangat2 lah diperlukan, sila lah isi',
+                    'min' => 'Alahai tulis la panjang sikit'
+                ]);
+                $request->merge(['status_borang' => Mohon::STATUS_BORANG_SUBMIT]);
+                $return = redirect()->route('mohon.show', $mohon);
+                break;
+        }
 
         // save
         $mohon->update($request->all());
 
-        return redirect()->route('mohon.show', $mohon);
+        return $return;
     }
 
     /**
