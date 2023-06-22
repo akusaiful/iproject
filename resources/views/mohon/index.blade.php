@@ -8,14 +8,32 @@
                 <div class="card-body">
                     <h5 class="card-title">Senarai Permohonan Baru</h5>
 
-                    <a href="{{ route('mohon.create') }}" class="btn btn-primary btn-sm mb-3">Paper Baru</a>
+                    <div class="row">
+                        <div class="col"><a href="{{ route('mohon.create') }}" class="btn btn-primary mt-2">Permohonan
+                                Baru</a>
+                        </div>
+                        <div class="col pb-2">
+                            <form action="">
+                                <div class="d-flex justify-content-end bd-highlight">
+                                    <div class="p-2 bd-highlight"><input type="text" name="query" class="form-control">
+                                    </div>
+                                    <div class="p-2 bd-highlight"><button type="submit"
+                                            class="btn btn-primary">Cari</button></div>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+
+
+
 
                     <!-- Default Table -->
                     <table class="table">
                         <thead>
                             <tr class="table-dark">
                                 <th scope="col">#</th>
-                                <th scope="col">Tajuk</th>                                
+                                <th scope="col">Tajuk</th>
                                 <th scope="col">Jenis Permohonan</th>
                                 <th scope="col">Tarikh Hantar</th>
                                 <th scope="col">Status</th>
