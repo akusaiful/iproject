@@ -16,10 +16,10 @@ class MohonFactory extends Factory
      * @return array<string, mixed>
      */
     public function definition()
-    {
+    {        
         return [
-            'tajuk' => fake()->name,
-            'tujuan' => fake()->catchPhrase,
+            'tajuk' => fake()->name, 
+            'tujuan' => fake()->jpjNumberPlate(),
             'latar_belakang' => fake()->text(),
             'objektif' => fake()->text(),
             'user_id' => rand(1, 10),

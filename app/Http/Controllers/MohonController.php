@@ -21,7 +21,7 @@ class MohonController extends Controller
         $this->deleteModal();
         return view('mohon.index', [
             'senaraiPermohonan' => Mohon::filter()
-                ->owner()
+                // ->owner()
                 ->paginate(config('paginator.record_per_page'))
         ]);
     }

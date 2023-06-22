@@ -35,7 +35,7 @@ class DatabaseSeeder extends Seeder
         $this->call(JenisMesyuratSeeder::class);
 
         \App\Models\User::factory(10)->create();
-        \App\Models\Mohon::factory(50)->create();
+        \App\Models\Mohon::factory(5000)->create();
         \App\Models\Mesyuarat::factory(10)->create();
 
         // \App\Models\User::factory()->create([

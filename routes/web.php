@@ -48,6 +48,7 @@ Route::middleware('auth')->group(function(){
     Route::group(['prefix' => 'mesyuarat'], function(){
 
         Route::get('/', [MesyuaratController::class, 'index'])->name('mesyuarat.index');
+        Route::get('/{mesyuarat}/view', [MesyuaratController::class, 'show'])->name('mesyuarat.show');
 
     });
 });
