@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\JenisMesyuaratController;
 use App\Http\Controllers\MesyuaratController;
 use App\Http\Controllers\MohonController;
 use Illuminate\Support\Facades\Route;
@@ -54,5 +55,17 @@ Route::middleware('auth')->group(function(){
         Route::get('/{mesyuarat}/edit', [MesyuaratController::class, 'edit'])->name('mesyuarat.edit');
         Route::put('/{mesyuarat}', [MesyuaratController::class, 'update'])->name('mesyuarat.update');
         Route::get('/{mesyuarat}', [MesyuaratController::class, 'destroy'])->name('mesyuarat.delete');    
+    });
+
+    // Jenis Mesyuarat
+    Route::group(['prefix' => 'jenis-mesyuarat'], function(){
+
+        Route::get('/', [JenisMesyuaratController::class, 'grid'])->name('jenis-mesyuarat.index');
+        // Route::get('/create', [MesyuaratController::class, 'create'])->name('mesyuarat.create');
+        // Route::post('/store', [MesyuaratController::class, 'store'])->name('mesyuarat.store');
+        // Route::get('/{mesyuarat}/view', [MesyuaratController::class, 'show'])->name('mesyuarat.show');
+        // Route::get('/{mesyuarat}/edit', [MesyuaratController::class, 'edit'])->name('mesyuarat.edit');
+        // Route::put('/{mesyuarat}', [MesyuaratController::class, 'update'])->name('mesyuarat.update');
+        // Route::get('/{mesyuarat}', [MesyuaratController::class, 'destroy'])->name('mesyuarat.delete');    
     });
 });
