@@ -22,6 +22,7 @@
                         // 'edit' => function ($data) {
                         //     return '/admin/pages/' . $data->id . '/edit';
                         // },
+                        // 'delete'
                         [
                             'class' => Itstructure\GridView\Actions\Delete::class, // Required
                             'url' => function ($data) {

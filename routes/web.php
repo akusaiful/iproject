@@ -42,13 +42,15 @@ Route::middleware('auth')->group(function(){
     Route::get('/mohon/{mohon}', [MohonController::class, 'show'])->name('mohon.show');
     Route::get('/mohon/{mohon}/edit', [MohonController::class, 'edit'])->name('mohon.edit');
     Route::put('/mohon/{mohon}', [MohonController::class, 'update'])->name('mohon.update');
-    Route::delete('/mohon/{mohon}', [MohonController::class, 'destroy'])->name('mohon.delete');
+    Route::delete('/mohon/{mohon}', [MohonController::class, 'destroy'])->name('mohon.delete');    
 
     // Mesyuarat
     Route::group(['prefix' => 'mesyuarat'], function(){
 
         Route::get('/', [MesyuaratController::class, 'index'])->name('mesyuarat.index');
         Route::get('/{mesyuarat}/view', [MesyuaratController::class, 'show'])->name('mesyuarat.show');
+        Route::get('/{mesyuarat}/edit', [MesyuaratController::class, 'edit'])->name('mesyuarat.edit');
+        Route::put('/{mesyuarat}', [MesyuaratController::class, 'update'])->name('mesyuarat.update');
 
     });
 });

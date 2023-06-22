@@ -7,20 +7,19 @@
 
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Kemaskini Butiran Permohonan</h5>
+                        <h5 class="card-title">Kemaskini Butiran Mesyuarat</h5>
 
                         <!-- General Form Elements -->
-                        <form action="{{ route('mohon.update', $mohon) }}" method="POST">
+                        <form action="{{ route('mesyuarat.update', $mesyuarat) }}" method="POST">
                             @method('PUT')
                             @csrf
                             
-                            @include('mohon._form')
+                            @include('mesyuarat._form')
                         
                             <div class="row mb-3">
                                 <label class="col-sm-2 col-form-label"></label>
-                                <div class="col-sm-10">
-                                    <button type="submit" name="action" value="draft" class="btn btn-primary">Simpan Draft</button>
-                                    <button type="submit" name="action" value="submit" class="btn btn-success">Hantar Permohonan</button>
+                                <div class="col-sm-10">                                    
+                                    <button type="submit" name="action" value="submit" class="btn btn-success">Kemaskini</button>
                                 </div>
                             </div>
 
