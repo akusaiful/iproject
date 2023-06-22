@@ -22,12 +22,12 @@
                         // 'edit' => function ($data) {
                         //     return '/admin/pages/' . $data->id . '/edit';
                         // },
-                        // 'delete'
+                        // 'delete',
                         [
                             'class' => Itstructure\GridView\Actions\Delete::class, // Required
                             'url' => function ($data) {
                                 // Optional
-                                return '/admin/pages/' . $data->id . '/delete';
+                                return route('mesyuarat.delete', $data);
                             },
                             'htmlAttributes' => [
                                 // Optional

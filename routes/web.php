@@ -51,6 +51,6 @@ Route::middleware('auth')->group(function(){
         Route::get('/{mesyuarat}/view', [MesyuaratController::class, 'show'])->name('mesyuarat.show');
         Route::get('/{mesyuarat}/edit', [MesyuaratController::class, 'edit'])->name('mesyuarat.edit');
         Route::put('/{mesyuarat}', [MesyuaratController::class, 'update'])->name('mesyuarat.update');
-
+        Route::get('/{mesyuarat}', [MesyuaratController::class, 'destroy'])->name('mesyuarat.delete');    
     });
 });

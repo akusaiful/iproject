@@ -12,4 +12,9 @@ class JenisMesyuarat extends Model
     protected $table = 'jenis_mesyuarat';
 
     public $timestamps = false;
+
+    public function getNama()
+    {
+        return $this->nama . ' (' . $this->singkatan . ')';
+    }
 }

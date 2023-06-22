@@ -10,5 +10,11 @@ class Mesyuarat extends Model
     use HasFactory;
 
     protected $table = 'mesyuarat';
-    
+
+    protected $fillable = ['bil', 'tahun', 'tarikh', 'tempat', 'masa', 'catatan'];
+
+    public function jenis_mesyuarat()
+    {
+        return $this->belongsTo(JenisMesyuarat::class);
+    }
 }

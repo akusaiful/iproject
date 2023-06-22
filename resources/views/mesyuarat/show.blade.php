@@ -20,6 +20,11 @@
                             <div class="tab-pane fade show active profile-overview" id="meeting" role="tabpanel">
 
                                 <div class="row">
+                                    <div class="col-lg-3 col-md-4 label ">Mesyurat</div>
+                                    <div class="col-lg-9 col-md-8">{{ $mesyuarat->jenis_mesyuarat->getNama() }}</div>
+                                </div>
+
+                                <div class="row">
                                     <div class="col-lg-3 col-md-4 label ">Tarikh</div>
                                     <div class="col-lg-9 col-md-8">{{ $mesyuarat->tarikh }}</div>
                                 </div>
@@ -73,9 +78,9 @@
 
                 <div class="card">
                     <div class="card-body profile-card pt-4 d-flex flex-column align-items-left">
-                        <h3>STATUS PERMOHONAN</h3>
+                        <h3>NAMA MESYUARAT</h3>
                         <h2>
-                            <div class="badge rounded-pill bg-primary"></div>
+                            <div class="badge rounded-pill bg-primary">{{ $mesyuarat->jenis_mesyuarat->getNama() }}</div>
                         </h2>
 
                     </div>
