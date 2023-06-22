@@ -32,12 +32,11 @@ class DatabaseSeeder extends Seeder
         $this->call(KaedahPembangunanSeeder::class);
         $this->call(SumberPeruntukanSeeder::class);
         $this->call(KaedahPerolehanSeeder::class);
+        $this->call(JenisMesyuratSeeder::class);
 
         \App\Models\User::factory(10)->create();
-
         \App\Models\Mohon::factory(50)->create();
-
-        
+        \App\Models\Mesyuarat::factory(10)->create();
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
