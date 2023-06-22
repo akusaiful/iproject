@@ -18,12 +18,11 @@ class MohonController extends Controller
      */
     public function index()
     {
-        $title = 'Delete User!';
-        $text = "Are you sure you want to delete?";
-        confirmDelete($title, $text);
-
+        $this->deleteModal();
         return view('mohon.index', [
-            'senaraiPermohonan' => Mohon::paginate(config('paginator.record_per_page'))
+            'senaraiPermohonan' => Mohon::filter()
+                ->owner()
+                ->paginate(config('paginator.record_per_page'))
         ]);
     }
 
@@ -134,5 +133,12 @@ class MohonController extends Controller
     {
         $mohon->delete();
         return redirect()->back()->with('success', 'Rekod berjaya dihapuskan');
+    }
+
+    private function deleteModal()
+    {
+        $title = 'Delete User!';
+        $text = "Are you sure you want to delete?";
+        confirmDelete($title, $text);
     }
 }

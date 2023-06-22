@@ -13,20 +13,17 @@
                                 Baru</a>
                         </div>
                         <div class="col pb-2">
-                            <form action="">
+                            <form action="{{ route('mohon.index') }}">
                                 <div class="d-flex justify-content-end bd-highlight">
-                                    <div class="p-2 bd-highlight"><input type="text" name="query" class="form-control">
+                                    <div class="p-2 bd-highlight">
+                                        <input type="text" name="query" class="form-control" value="{{ request()->get('query') }}">
                                     </div>
                                     <div class="p-2 bd-highlight"><button type="submit"
                                             class="btn btn-primary">Cari</button></div>
                                 </div>
                             </form>
                         </div>
-
                     </div>
-
-
-
 
                     <!-- Default Table -->
                     <table class="table">
@@ -63,7 +60,9 @@
                     </table>
 
                     <!-- Ini arahan untuk generate pagination page -->
-                    {{ $senaraiPermohonan->links() }}
+                    {{ $senaraiPermohonan->appends([
+                        'query' => request()->get('query')
+                    ])->links() }}
 
                     <!-- End Default Table Example -->
                 </div>
