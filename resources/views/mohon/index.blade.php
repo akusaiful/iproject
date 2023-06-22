@@ -9,14 +9,24 @@
                     <h5 class="card-title">Senarai Permohonan Baru</h5>
 
                     <div class="row">
-                        <div class="col"><a href="{{ route('mohon.create') }}" class="btn btn-primary mt-2">Permohonan
-                                Baru</a>
+                        <div class="col">
+                            <div class="row">
+                                <div class="col-4"><a href="{{ route('mohon.create') }}"
+                                        class="btn btn-primary mt-2">Permohonan Baru</a></div>
+                                <div class="col pt-3">
+                                    <b>Jumlah Rekod : {{ $senaraiPermohonan->total() }}</b>
+                                    | Papar Rekod {{ $senaraiPermohonan->firstItem() }}
+                                    dari {{ $senaraiPermohonan->lastItem() }} </div>
+
+                            </div>
+
                         </div>
                         <div class="col pb-2">
                             <form action="{{ route('mohon.index') }}">
                                 <div class="d-flex justify-content-end bd-highlight">
                                     <div class="p-2 bd-highlight">
-                                        <input type="text" name="query" class="form-control" value="{{ request()->get('query') }}">
+                                        <input type="text" name="query" class="form-control"
+                                            value="{{ request()->get('query') }}">
                                     </div>
                                     <div class="p-2 bd-highlight"><button type="submit"
                                             class="btn btn-primary">Cari</button></div>
@@ -29,7 +39,7 @@
                     <table class="table">
                         <thead>
                             <tr class="table-dark">
-                                <th scope="col">#</th>
+                                <th scope="col">NO</th>
                                 <th scope="col">Tajuk</th>
                                 <th scope="col">Jenis Permohonan</th>
                                 <th scope="col">Tarikh Hantar</th>
@@ -39,9 +49,9 @@
                         </thead>
                         <tbody>
 
-                            @foreach ($senaraiPermohonan as $mohon)
+                            @foreach ($senaraiPermohonan as $key => $mohon)
                                 <tr>
-                                    <th scope="row">{{ $mohon->id }}</th>
+                                    <th scope="row">{{ $key + 1 }}</th>
                                     <td>{{ $mohon->tajuk }}</td>
                                     <td>{{ $mohon->jenis_permohonan->nama }}</td>
                                     <td>{{ $mohon->created_at }}</td>
@@ -61,8 +71,8 @@
 
                     <!-- Ini arahan untuk generate pagination page -->
                     {{ $senaraiPermohonan->appends([
-                        'query' => request()->get('query')
-                    ])->links() }}
+                            'query' => request()->get('query'),
+                        ])->links() }}
 
                     <!-- End Default Table Example -->
                 </div>
