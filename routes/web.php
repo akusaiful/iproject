@@ -3,7 +3,9 @@
 use App\Http\Controllers\JenisMesyuaratController;
 use App\Http\Controllers\MesyuaratController;
 use App\Http\Controllers\MohonController;
+use App\Models\Mohon;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
 
 /*
 |--------------------------------------------------------------------------
@@ -68,6 +70,13 @@ Route::middleware('auth')->group(function(){
         // Route::put('/{mesyuarat}', [MesyuaratController::class, 'update'])->name('mesyuarat.update');
         // Route::get('/{mesyuarat}', [MesyuaratController::class, 'destroy'])->name('mesyuarat.delete');    
     });
+
+    Route::get('/file/{model}/download', function(Mohon $model){
+
+        return Storage::download(Mohon::DOCUMENT_FOLDER . '/' . $model->file_dokumen_proses_semasa);
+
+    })->name('file.download');
+
 });
 
 

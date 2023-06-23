@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class Mohon extends Model
 {
@@ -12,8 +13,12 @@ class Mohon extends Model
 
     const STATUS_BORANG_DRAFT = 'DRAFT';
     const STATUS_BORANG_SUBMIT = 'SUBMIT';
+    
+    const DOCUMENT_FOLDER = 'document';
 
     public $status_borang_draft = 'DRAFT';
+
+
 
     protected $table = "mohon";
 
@@ -96,21 +101,29 @@ class Mohon extends Model
         return $query;
     }
 
-
-    public function caculateResult()
+    /**
+     * Get File link
+     */
+    public function getFileLink()
     {
+        if ($this->checkFileExist()) {
+            return route('file.download', [
+                'model' => $this
+            ]);
+        }
+    }
 
-        // call model lain dkt sini
-        $bahagian = SSOBahagian::all();
-        //predict table nama dia apa sso_bahagians
-        // protected $table = 'kod_bahagian';
-        // protected $connection = 'sso_mysql';
-
-        $dapatSemuaBahagian = SSOBahagian::all();
-         
-
-        // calculation
-        return $result;
-    
+    /**
+     * Check file exist
+     */
+    public function checkFileExist()
+    {
+        if (
+            $this->file_dokumen_proses_semasa &&
+            Storage::exists(self::DOCUMENT_FOLDER . '/' . $this->file_dokumen_proses_semasa)
+        ) {
+            return true;
+        }
+        return false;
     }
 }

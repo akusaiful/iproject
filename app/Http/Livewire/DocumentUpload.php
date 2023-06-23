@@ -6,6 +6,13 @@ use App\Models\Mohon;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
+// dia akan tengok dlm batch table 'migrations'
+// php artisan migrate --seed 
+
+// dia akan run dan drop semua table dalm database 
+// semua table yg ada dkt migration dlm folder apps dan vendor akan rerun
+// php artisan migrate:fresh --seed
+
 class DocumentUpload extends Component
 {
     use WithFileUploads;
@@ -39,7 +46,7 @@ class DocumentUpload extends Component
         // $this->document->store('document');
 
         $this->filename = $this->document->getClientOriginalName();
-        $this->document->storeAs('document', $this ->filename);
+        $this->document->storeAs(Mohon::DOCUMENT_FOLDER, $this ->filename);
         $this->model->file_dokumen_proses_semasa = $this->filename;
 
         if($this->model->save()){
