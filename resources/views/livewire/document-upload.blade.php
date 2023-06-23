@@ -2,6 +2,7 @@
 
     <h5 class="card-title">Upload Dokumen</h5>
 
+    @if($model->checkFileExist())
     <div class="row">
         <div class="col">
             <div class="card info-card sales-card">
@@ -37,6 +38,7 @@
             </div>
         </div>
     </div>
+    @endif
 
 
 

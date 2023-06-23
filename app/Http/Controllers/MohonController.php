@@ -8,6 +8,7 @@ use App\Models\KaedahPerolehan;
 use App\Models\Mohon;
 use App\Models\SumberPeruntukan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class MohonController extends Controller
 {
@@ -133,6 +134,11 @@ class MohonController extends Controller
     {
         $mohon->delete();
         return redirect()->back()->with('success', 'Rekod berjaya dihapuskan');
+    }
+
+    public function download(Mohon $model)
+    {
+        return Storage::download(Mohon::DOCUMENT_FOLDER . '/' . $model->file_dokumen_proses_semasa);
     }
 
     private function deleteModal()

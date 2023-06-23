@@ -71,11 +71,11 @@ Route::middleware('auth')->group(function(){
         // Route::get('/{mesyuarat}', [MesyuaratController::class, 'destroy'])->name('mesyuarat.delete');    
     });
 
-    Route::get('/file/{model}/download', function(Mohon $model){
+    // Route::get('/file/{model}/download', function(Mohon $model){
+    //     return Storage::download(Mohon::DOCUMENT_FOLDER . '/' . $model->file_dokumen_proses_semasa);
+    // })->name('file.download');
 
-        return Storage::download(Mohon::DOCUMENT_FOLDER . '/' . $model->file_dokumen_proses_semasa);
-
-    })->name('file.download');
+    Route::get('/file/{model}/download',[MohonController::class, 'download'])->name('file.download');
 
 });
 
