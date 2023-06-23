@@ -37,6 +37,9 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+
+  @livewireStyles
+
 </head>
 
 <body>
@@ -329,6 +332,8 @@
   <script src="{{ asset('assets/js/main.js') }}"></script>
 
   @include('sweetalert::alert')
+
+  @livewireScripts
 
 </body>
 

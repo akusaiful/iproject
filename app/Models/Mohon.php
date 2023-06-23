@@ -95,4 +95,22 @@ class Mohon extends Model
 
         return $query;
     }
+
+
+    public function caculateResult()
+    {
+
+        // call model lain dkt sini
+        $bahagian = SSOBahagian::all();
+        //predict table nama dia apa sso_bahagians
+        // protected $table = 'kod_bahagian';
+        // protected $connection = 'sso_mysql';
+
+        $dapatSemuaBahagian = SSOBahagian::all();
+         
+
+        // calculation
+        return $result;
+    
+    }
 }

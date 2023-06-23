@@ -30,6 +30,9 @@ return new class extends Migration
             $table->foreignId('sumber_peruntukan_id');
             $table->foreignId('kaedah_perolehan_id');
 
+            $table->string('file_dokumen_proses_semasa')->nullable();
+            $table->string('file_dokumen_proses_cadangan')->nullable();
+
             $table->string('status_borang')->length(10);
             
             $table->timestamps();

@@ -69,3 +69,8 @@ Route::middleware('auth')->group(function(){
         // Route::get('/{mesyuarat}', [MesyuaratController::class, 'destroy'])->name('mesyuarat.delete');    
     });
 });
+
+
+Route::get('/hello-livewire', function(){
+    return view('info');
+});

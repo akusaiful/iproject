@@ -92,4 +92,15 @@ class MesyuaratController extends Controller
         $mesyuarat->delete();
         return redirect()->route('mesyuarat.index')->with('toast_success', 'Rekod berjaya dihapuskan');
     }
+
+    public function calculateResult()
+    {
+        //table //
+        $result = Question::get()->calculateResult();
+
+        return view('result', [
+            'result' => $result
+        ]);
+    
+    }
 }
