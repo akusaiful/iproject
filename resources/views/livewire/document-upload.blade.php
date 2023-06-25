@@ -2,7 +2,7 @@
 
     <h5 class="card-title">Upload Dokumen</h5>
 
-    @if($model->checkFileExist())
+    @if(!$removeFile)
     <div class="row">
         <div class="col">
             <div class="card info-card sales-card">
@@ -13,9 +13,8 @@
                         <li class="dropdown-header text-start">
                             <h6>Filter</h6>
                         </li>
-                        <li><a class="dropdown-item" href="#">Today</a></li>
-                        <li><a class="dropdown-item" href="#">This Month</a></li>
-                        <li><a class="dropdown-item" href="#">This Year</a></li>
+                        <li><a class="dropdown-item" href="#" wire:click="removeFile">Remove File</a></li>
+                        <li><a class="dropdown-item" href="#">Rename File</a></li>                        
                     </ul>
                 </div>
 

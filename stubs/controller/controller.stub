@@ -1,0 +1,118 @@
+<?php
+
+/**
+*
+* Stub generator for lazy programmer generate by @akusaiful
+* Jun 24 2023 Kuantan Pahang Darul Makmur
+*
+*/
+
+namespace App\Http\Controllers;
+
+use App\Models\#CLASS_MODEL#;
+use Illuminate\Http\Request;
+
+class #CLASS_NAME#Controller extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $this->deleteModal();
+        return view('#CLASS_NAME_FOLDER#.index', [
+            '#MODEL#s' => #CLASS_MODEL#::paginate(config('paginator.record_per_page'))
+        ]);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('#CLASS_NAME_FOLDER#.create', [
+            '#MODEL#' => new #CLASS_MODEL#()
+        ]);
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        // save
+        $#MODEL# = #CLASS_MODEL#::create($request->all());
+
+        return redirect()->route('#CLASS_NAME_FOLDER#.show', $#MODEL#);
+    }
+
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show(#CLASS_MODEL# $#MODEL#)
+    {
+        return view('#CLASS_NAME_FOLDER#.show', compact('#MODEL#'));
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(#CLASS_MODEL# $#MODEL#)
+    {
+        return view('#CLASS_NAME_FOLDER#.edit')
+            ->with('#MODEL#', $#MODEL#);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, #CLASS_MODEL# $#MODEL#)
+    {        
+        // save
+        $#MODEL#->update($request->all());
+
+        return redirect()->route('#CLASS_NAME_FOLDER#.show', $#MODEL#);
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(#CLASS_MODEL# $#MODEL#)
+    {
+        $#MODEL#->delete();
+        return redirect()->back()->with('success', 'Rekod berjaya dihapuskan');
+    }
+
+    public function download(#CLASS_MODEL# $#MODEL#)
+    {
+        //return Storage::download(Mohon::DOCUMENT_FOLDER . '/' . $model->file_dokumen_proses_semasa);
+    }
+
+    private function deleteModal()
+    {
+        $title = 'Delete User!';
+        $text = "Are you sure you want to delete?";
+        confirmDelete($title, $text);
+    }
+}

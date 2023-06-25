@@ -36,6 +36,13 @@ class DocumentUpload extends Component
      * Public property untuk detect dokumen berjaya di upload
      */
     public $success = false;
+
+    public $removeFile = false;
+
+    public function removeFile()
+    {
+        $this->removeFile = true;
+    }
    
     public function save()
     {    
