@@ -12,12 +12,12 @@
                         <ul class="nav nav-tabs nav-tabs-bordered" role="tablist">
 
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview"
+                                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-overview"
                                     aria-selected="true" role="tab">Butiran Permohonan</button>
                             </li>
 
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit"
+                                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-edit"
                                     aria-selected="false" tabindex="-1" role="tab">Upload Document</button>
                             </li>
 
@@ -34,7 +34,7 @@
                         </ul>
                         <div class="tab-content pt-2">
 
-                            <div class="tab-pane fade show active profile-overview" id="profile-overview" role="tabpanel">
+                            <div class="tab-pane fade profile-overview" id="profile-overview" role="tabpanel">
                                 <h5 class="card-title">Tujuan Projek</h5>
                                 <p class="small fst-italic">{{ $mohon->tujuan }}</p>
 
@@ -88,7 +88,7 @@
 
                             </div>
 
-                            <div class="tab-pane fade profile-edit pt-3" id="profile-edit" role="tabpanel">
+                            <div class="tab-pane active show fade profile-edit pt-3" id="profile-edit" role="tabpanel">
 
                                 <livewire:document-upload :model="$mohon" />
 

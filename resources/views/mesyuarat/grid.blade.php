@@ -4,10 +4,21 @@
     @php
         $gridData = [
             'dataProvider' => $dataProvider,
-            'title' => 'Pengurusan Mesyurat',
+            'title' => 'Pengurusan Mesyurat JPICT',
             'useFilters' => true,
             'columnFields' => [
-                'id',
+                [
+                    'attribute' => 'id',
+                    'htmlAttributes' => [
+                        'width' => '5%', 
+                        'style' => 'text-align:center'
+                    ],
+                    'format' => [
+                        'htmlAttributes' => [
+                            'class' => 'text-center'
+                        ]
+                    ]
+                ],
                 'tahun',
                 'bil',
                 'tarikh',
@@ -28,7 +39,7 @@
                             'class' => Itstructure\GridView\Actions\Delete::class, // Required
                             'url' => function ($data) {
                                 // Optional
-                                return route('mesyuarat.delete', $data);
+                                return route('mesyuarat.destroy', $data);
                             },
                             'htmlAttributes' => [
                                 // Optional
@@ -43,7 +54,7 @@
         ];
     @endphp
 
-<a href="{{ route('mesyuarat.create') }}" class="btn btn-primary">Daftar Mesyuarat</a>
+    <a href="{{ route('mesyuarat.create') }}" class="btn btn-primary">Daftar Mesyuarat</a>
 
-@gridView($gridData)   
+    @gridView($gridData)
 @endsection

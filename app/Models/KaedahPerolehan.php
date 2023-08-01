@@ -11,6 +11,8 @@ class KaedahPerolehan extends Model
 
     protected $table = 'kaedah_perolehan';
 
+    protected $fillable = ['nama'];
+
     public $timestamps = false;
 
     public function permohonan()

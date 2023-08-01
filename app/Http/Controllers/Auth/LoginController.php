@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Guide : https://gist.github.com/nuradiyana/900389ce25a71c2614c39aee80c9e99f
+ */
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
@@ -39,10 +42,10 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    public function username()
-    {
-        return 'pengguna_kp';
-    }
+    // public function username()
+    // {
+    //     return 'pengguna_kp';
+    // }
 
     /**
      * Override method from Illuminate\Foundation\Auth\AuthenticatesUsers
@@ -52,11 +55,11 @@ class LoginController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return array
      */
-    protected function credentials(Request $request)
-    {
-        return [
-            $this->username() => $request->get($this->username()),
-            'password' => md5($request->get('password'))
-        ];
-    }
+    // protected function credentials(Request $request)
+    // {
+    //     return [
+    //         $this->username() => $request->get($this->username()),
+    //         'password' => md5($request->get('password'))
+    //     ];
+    // }
 }

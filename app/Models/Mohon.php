@@ -13,11 +13,15 @@ class Mohon extends Model
 
     const STATUS_BORANG_DRAFT = 'DRAFT';
     const STATUS_BORANG_SUBMIT = 'SUBMIT';
-    
+
     const DOCUMENT_FOLDER = 'document';
 
     public $status_borang_draft = 'DRAFT';
 
+    /**
+     * Current file
+     */
+    public $tmpFile = [];
 
 
     protected $table = "mohon";
@@ -45,6 +49,13 @@ class Mohon extends Model
         'status_borang'
     ];
 
+    protected static function booted()
+    {
+        static::created(function ($mohon) {
+            $mohon->tmpFile['file_dokumen_proses_semasa'] = $mohon->file_dokumen_proses_semasa;
+        });
+    }
+
     /**
      * relation betwee 2 table
      */
@@ -63,6 +74,10 @@ class Mohon extends Model
         return $this->belongsTo(KaedahPerolehan::class);
     }
 
+    public function files()
+    {
+        return $this->hasMany(File::class);
+    }
 
     public function kaedah_pembangunan()
     {

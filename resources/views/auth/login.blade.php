@@ -15,9 +15,9 @@
                             <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Nombor Kad Pengenalan') }}</label>
 
                             <div class="col-md-6">
-                                <input id="pengguna_kp" type="pengguna_kp" class="form-control @error('pengguna_kp') is-invalid @enderror" name="pengguna_kp" value="{{ old('pengguna_kp') }}" required autocomplete="pengguna_kp" autofocus>
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
-                                @error('pengguna_kp')
+                                @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

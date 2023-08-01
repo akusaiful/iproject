@@ -22,7 +22,7 @@ class MohonController extends Controller
         $this->deleteModal();
         return view('mohon.index', [
             'senaraiPermohonan' => Mohon::filter()
-                // ->owner()
+                ->owner()
                 ->paginate(config('paginator.record_per_page'))
         ]);
     }
@@ -68,6 +68,7 @@ class MohonController extends Controller
      */
     public function show(Mohon $mohon)
     {
+        $mohon->with('files');
         return view('mohon.show', compact('mohon'));
     }
 

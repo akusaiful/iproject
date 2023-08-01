@@ -10,6 +10,7 @@ use Itstructure\GridView\DataProviders\EloquentDataProvider;
 
 class MesyuaratController extends Controller
 {
+    const TYPE = JenisMesyuarat::MESYUARAT_JPICT;
     /**
      * Display a listing of the resource.
      *
@@ -17,7 +18,8 @@ class MesyuaratController extends Controller
      */
     public function index()
     {
-        $dataProvider = new EloquentDataProvider(Mesyuarat::query());
+        $type = request()->get('type');
+        $dataProvider = new EloquentDataProvider(Mesyuarat::query()->filter($type));
         return view('mesyuarat.grid', [
             'dataProvider' => $dataProvider
         ]);
@@ -41,8 +43,9 @@ class MesyuaratController extends Controller
      */
     public function store(MesyuaratRequest $request)
     {
+        $type = $request->jenis_mesyuarat_id;
         return redirect()->route('mesyuarat.show', Mesyuarat::create($request->all() + [
-            'jenis_mesyuarat_id' => JenisMesyuarat::MESYUARAT_JPICT
+            'jenis_mesyuarat_id' => $type
         ]));
     }
 

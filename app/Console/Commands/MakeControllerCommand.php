@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Based on guide : 
+ * https://medium.com/@ariadoos/laravel-custom-file-stubs-ed32f046ea81
+ */
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;

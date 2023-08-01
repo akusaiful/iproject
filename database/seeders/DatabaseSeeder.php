@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder
         // User::truncate();
         
         //DB::truncate('mohon');
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
         
         $this->call(JenisPermohonanSeeder::class);
         $this->call(KaedahPembangunanSeeder::class);

@@ -11,6 +11,8 @@ class SumberPeruntukan extends Model
 
     protected $table = 'sumber_peruntukan';
 
+    protected $fillable = ['nama'];
+
     public $timestamps = false;
 
     public function permohonan()

@@ -1,5 +1,14 @@
 
 <div class="row mb-3">
+    <label for="inputText" class="col-sm-2 col-form-label">Jenis Mesyuarat</label>
+    <div class="col-sm-10">
+
+        {{ $jenis_mesyuarat }}
+
+    </div>
+</div>
+
+<div class="row mb-3">
     <label for="inputText" class="col-sm-2 col-form-label">Tarikh</label>
     <div class="col-sm-10">
 

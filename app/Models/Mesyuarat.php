@@ -17,4 +17,11 @@ class Mesyuarat extends Model
     {
         return $this->belongsTo(JenisMesyuarat::class);
     }
+
+    public function scopeFilter($query, $type)
+    {
+        // $jenisMesyuaratId = request()->get('type');
+        return $query->where('jenis_mesyuarat_id', $type);
+    
+    }
 }
